@@ -45,8 +45,5 @@ Features
 	Using only NodeJS and Node libraries (modules); we are able to bring you all of
 	this, cross platform; all you need is NodeJS and you're ready to go!
 
-Questions? (constructive) Complaints?
 --------
-
-email me: [alex@alexscotton.com](mailto:alex@alexscotton.com)
-or visit: [www.alexscotton.com](www.alexscotton.com)
+| email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](www.alexscotton.com) |
