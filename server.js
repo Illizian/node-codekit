@@ -4,14 +4,17 @@ console.log('--------------------------------');
 console.log('Watching: ' + process.cwd());
 
 // Require the watch module
-var watchr  = require('watchr')
-  , fs 		= require('fs')
-  , less 	= require('less')
-  , io 		= require('socket.io').listen(8080);
+var watchr  	= require('watchr')
+  , fs 			= require('fs')
+  , less 		= require('less')
+  , io 			= require('socket.io').listen(8080)
+  , compressor  = require('node-minify');
 
 // In-Line Config - Soon to move to external json object, or argv
 var config = {
-	color : true
+	color : true,
+	minify: true,
+	less  : true
 };
 io.set('log level', 0);
 
@@ -38,9 +41,6 @@ io.sockets.on('connection', function (socket) {
 
 // MAIN 'SORTING' PROCESS
 function event_processor(arg) {
-	/*var filename = arg[1].replace(process.cwd(), "");
-	var directory = arg[1].replace(filename, "");*/
-
 	var filename = arg[1].substr(arg[1].lastIndexOf('\\') + 1);
 	var directory = arg[1].slice(0,arg[1].lastIndexOf('\\'));
 	var ext = filename.substr(filename.lastIndexOf(".") + 1);
@@ -53,6 +53,7 @@ function event_processor(arg) {
 			console.log(color('    FILE       : ', 'cyan') + filename);
 			console.log(color('    EXTENSION  : ', 'cyan') + ext);
 			console.log(color('    SIZE(bytes): ', 'cyan') + arg[2].size);
+			console.log(color('    * REFRESHING ALL PAGES *', 'bold'));
 			io.sockets.emit('update', { type: 'refresh' });
 		break;
 		case "unlink":
@@ -61,53 +62,97 @@ function event_processor(arg) {
 			console.log(color('    DIRECTORY  : ', 'cyan') + directory);
 			console.log(color('    FILE       : ', 'cyan') + filename);
 			console.log(color('    EXTENSION  : ', 'cyan') + ext);
+			console.log(color('    * REFRESHING ALL PAGES *', 'bold'));
 			io.sockets.emit('update', { type: 'refresh' });
 		break;
 		case "change":
 			//change File
-			console.log(color('  A file has been changed:' , 'magenta'));
+			console.log(color('  A file has been changed:' , 'yellow'));
 			console.log(color('    DIRECTORY  : ', 'cyan') + directory);
 			console.log(color('    FILE       : ', 'cyan') + filename);
 			console.log(color('    EXTENSION  : ', 'cyan') + ext);
 			console.log(color('    SIZE(bytes): ', 'cyan') + arg[3].size);
 			switch(ext) {
 				default:
-					io.sockets.emit('update', { type: 'refresh' });	
+					console.log(color('    * REFRESHING ALL PAGES *', 'bold'));
+					io.sockets.emit('update', { type: 'refresh' });
 				break;
 				case 'css':
+					console.log(color('    * RELOADING CSS ENTRIES *', 'bold'));
 					io.sockets.emit('update', { type: 'css' });
 				break;
 				case 'less':
-					fs.readFile(arg[1], 'ascii', function read(err, data) {
-						if (err) {
-							throw err;
-						}
-						compile_less(directory, filename, data);
-					});
+					if(!config.less) {
+						console.log(color('    * RELOADING CSS ENTRIES *', 'bold'));
+						io.sockets.emit('update', { type: 'css' });
+					} else {
+						console.log(color('    * COMPILING LESS *', 'bold'));
+						compile_less(directory, filename, arg[1]);
+					}
+				break;
+				case 'js':
+				if(!config.minify || filename.indexOf('-min-yui.js') != '-1') {
+					console.log(color('    * REFRESHING ALL PAGES *', 'bold'));
+					io.sockets.emit('update', { type: 'refresh' });
+				} else {
+					console.log(color('    * COMPRESSING JAVASCRIPT (with YUI) *', 'bold'));
+					compress_js(directory, filename)
+				}
 			}
 	}
 }
 
 // LESS COMPILER
-function compile_less(directory, filename, file) {
-	console.log('dir:' + directory);
-	console.log('filename:' + filename);
-	console.log('extracted less:' + file);
+function compile_less(directory, filename, longdir) {
+	fs.readFile(longdir, 'ascii', function read(err, data) {
+		if (err) {
+			throw err;
+		} else {
 
-	/*less.render(file, function (e, css) {
-		console.log(css);
-	});*/
-	var parser = new(less.Parser)({
-		paths: [directory],
-		filename: filename
-	});
-	parser.parse(file, function (err, tree) {
-		if (err) { return console.log(err) }
-		console.log('[OUTPUT CSS]');
-		console.log(tree.toCSS({compress:false})); // CSS output
+		}
+		var parser = new(less.Parser)({
+			paths: [directory],
+			filename: filename
+		});
+		parser.parse(data, function (err, tree) {
+			if (err) { return console.log(err) };
+			// Write to file of same name with css extension.
+			fs.writeFile(longdir + '.css', tree.toCSS({compress:false}), function (err) {
+				if (err) throw err;
+				console.log(color('    * COMPILED CSS WRITTEN TO: ' + filename + '.css *', 'bold'));
+				console.log(color('    * RELOADING CSS ENTRIES *', 'bold'));
+				io.sockets.emit('update', { type: 'css' });
+			});
+		});
 	});
 }
 
+// COMPRESSORS
+// Using YUI Compressor for CSS
+function compress_css(directory, filename) {
+	new compressor.minify({
+		type: 'yui-css',
+		fileIn: 'public/css/base.css',
+		fileOut: 'public/css/base-min-yui.css',
+		callback: function(err){
+		    console.log(err);
+		}
+	});
+}
+
+// Using YUI Compressor for JS
+function compress_js(directory, filename) {
+	var file_in = directory + '\\' + filename;
+	var file_out = directory + '\\' + file_in.slice(file_in.lastIndexOf('\\') + 1, file_in.lastIndexOf('.js')) + '-min-yui.js';
+	new compressor.minify({
+		type: 'yui-js',
+		fileIn: file_in,
+		fileOut: file_out,
+		callback: function(err){
+			console.log(err);
+		}
+	});
+}
 
 /* CONSOLE LOG TERMINAL ANSI COLORS */
 function color(str, color) {
