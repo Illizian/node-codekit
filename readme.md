@@ -3,14 +3,14 @@ NodeJS CodeKit
 
 ## CodeKit Alternative on NodeJS
 
-	An attempt at in-part replicating the awesome power of [CodeKit](http://incident57.com/codekit/).
+An attempt at in-part replicating the awesome power of [CodeKit](http://incident57.com/codekit/).
 
-	Thank you, incident57 for providing the inspiration, unfortunately I use Windows/Ubuntu, so I
-	can't make use of it's awesome might! So I made this, I hope you find it useful!
+Thank you, incident57 for providing the inspiration, unfortunately I use Windows/Ubuntu, so I
+can't make use of it's awesome might! So I made this, I hope you find it useful!
 
-	PLEASE NOTE: This has not been entirely tested! It's very much a prototype/alpha, I do not take 
-	responsibility for ruining your working directory, use with caution... Backup any directory before
-	initializing the Node Server!
+PLEASE NOTE: This has not been entirely tested! It's very much a prototype/alpha, I do not take 
+responsibility for ruining your working directory, use with caution... Backup any directory before
+initializing the Node Server!
 
 Features
 --------
