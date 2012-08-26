@@ -15,7 +15,7 @@ initializing the Node Server!
 Features
 --------
 
-1. **Browser Refresh On Change**
+1. **Live Browser Reloads**
 
     Everytime you create or change a key file in your project, NodeJS CodeKit 
     will instruct every instance of your page to refresh, ensuring all your

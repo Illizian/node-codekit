@@ -1,34 +1,9 @@
 <html>
 	<head>
 		<script src="http://localhost:8080/socket.io/socket.io.js"></script>
-		<script src="./jquery.js"></script>
+		<script src="./jquery-min-yui.js"></script>
+		<script src="./node-codekit-display-min-yui.js"></script>
 		<link type="text/css" href="./style.less.css" rel="stylesheet">
-		<script>
-			var socket = io.connect('http://localhost:8080');
-			
-			socket.on('update', function (data) {
-				console.log(data);
-				switch(data.type) {
-					case 'refresh':
-						reload();
-					break;
-					case 'css':
-						reloadStylesheets();
-					break;
-				}
-			});
-
-			function reload() {
-				location.reload(true);
-			}
-
-			function reloadStylesheets() {
-				var queryString = '?reload=' + new Date().getTime();
-				$('link[rel="stylesheet"]').each(function () {
-					this.href = this.href.replace(/\?.*|$/, queryString);
-				});
-			}
-		</script>
 
 		<title>Example Development Page</title>
 	</head>
