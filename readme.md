@@ -8,11 +8,9 @@ NodeJS CodeKit
 	Thank you, incident57 for providing the inspiration, unfortunately I use Windows/Ubuntu, so I
 	can't make use of it's awesome might! So I made this, I hope you find it useful!
 
----
-PLEASE NOTE: This has not been entirely tested! It's very much a prototype/alpha, I do not take 
-responsibility for ruining your working directory, use with caution... Backup any directory before
-initializing the Node Server!
----
+	PLEASE NOTE: This has not been entirely tested! It's very much a prototype/alpha, I do not take 
+	responsibility for ruining your working directory, use with caution... Backup any directory before
+	initializing the Node Server!
 
 Features
 --------
@@ -47,6 +45,8 @@ Features
 	Using only NodeJS and Node libraries (modules); we are able to bring you all of
 	this, cross platform; all you need is NodeJS and you're ready to go!
 
-Questions? (constructive) Complaints? 
+Questions? (constructive) Complaints?
+--------
+
 email me: [alex@alexscotton.com](mailto:alex@alexscotton.com)
 or visit: [www.alexscotton.com](www.alexscotton.com)
