@@ -1,5 +1,9 @@
 NodeJS CodeKit
 ==============
+1. **Intro**
+2. **Features**
+3. **How to Use**
+4. **Credits**
 
 ## CodeKit Alternative built Node.JS
 
@@ -67,10 +71,10 @@ How to Use
 2. **Install dependancies**
  	
 	NodeJS Codekit requires a few modules available via NPM:
-	- watchr
- 	- socket.io
-  	- less
- 	- node-minify
+	- [watchr](https://github.com/mynyml/watchr)
+ 	- [socket.io](https://github.com/LearnBoost/socket.io)
+  	- [less](http://lesscss.org/#-server-side-usage)
+ 	- [node-minify](https://github.com/srod/node-minify)
 
  	Run the following command in the directory you cloned the repo to:
  	 	
