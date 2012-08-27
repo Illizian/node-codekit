@@ -1,11 +1,11 @@
-NodeJS CodeKit
+NodeKit
 ==============
 1. **Intro**
 2. **Features**
 3. **How to Use**
 4. **Credits**
 
-## CodeKit Alternative built Node.JS
+## CodeKit Alternative built on Node.JS
 
 An attempt at replicating some of the awesome power in [CodeKit](http://incident57.com/codekit/).
 
@@ -27,7 +27,7 @@ Features
 		<script src="./jquery.js"></script>
 		<script src="./node-codekit-display.js"></script>
 
-    ... and everytime you create or change a file in your project directory, NodeJS CodeKit 
+    ... and everytime you create or change a file in your project directory, NodeKit 
     will instruct every instance of your page to refresh, ensuring every device is
     in sync. (it's compatible with:- Chrome, Safari, Firefox on Mac, Windows or Unix and
     Android and iOS devices)
@@ -38,7 +38,7 @@ Features
     playing with rules, and sometimes it's not convenient to do it in Debugging
     Tools, or maybe you're designing for a tablet or mobile device and don't have such luxuries.
 
-    Well with NodeJS CodeKit, everytime a Stylesheet changes, it instructs all your
+    Well with NodeKit, everytime a Stylesheet changes, it instructs all your
     browsers/displays (inc. Mobiles/Tablets) to reload the stylesheets, no refresh of the page needed!
 
 3.  **LESS Compiler**
@@ -70,7 +70,7 @@ How to Use
 1. **Clone the Repo**
 2. **Install dependancies**
  	
-	NodeJS Codekit requires a few modules available via NPM:
+	NodeKit requires a few modules available via NPM:
 	- [watchr](https://github.com/mynyml/watchr)
  	- [socket.io](https://github.com/LearnBoost/socket.io)
   	- [less](http://lesscss.org/#-server-side-usage)
@@ -79,14 +79,24 @@ How to Use
  	Run the following command in the directory you cloned the repo to:
  	 	
  	 	npm install watchr socket.io less node-minify
+ 	
+3. **CONFIGURE THE SERVER**
+	
+	At this stage there is some manual configuration to be done before you're ready to go, this will be superseeded once NodeKit is an npm module, for now simply follow these steps:
+	- Open server.js in your text editor
+	- configure the server options on lines 14-25:
 
-2. **START THE SERVER**
+		(it should look like this)
+		14. var config = {
+		15. 	color 	  : true,
+
+3. **START THE SERVER**
 
  	Run the following command in the directory you cloned the repo to:
  		
  		node server.js
 
-3. **LAUNCH EXAMPLE PAGE**
+4. **LAUNCH EXAMPLE PAGE**
 
  	Open up client/example.html on your browser
 

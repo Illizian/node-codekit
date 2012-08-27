@@ -1,1 +1,0 @@
-var socket=io.connect("http://localhost:8080");socket.on("update",function(a){console.log(a);switch(a.type){case"refresh":reload();break;case"css":reloadStylesheets();break}});function reload(){location.reload(true)}function reloadStylesheets(){var a="?reload="+new Date().getTime();$('link[rel="stylesheet"]').each(function(){this.href=this.href.replace(/\?.*|$/,a)})};
