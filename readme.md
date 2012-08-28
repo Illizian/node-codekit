@@ -69,6 +69,8 @@ How to Use
 
 1. **Clone the Repo**
 2. **Install dependancies**
+
+	node-minify requires the Java Runtime Environment or JRE
  	
 	NodeKit requires a few modules available via NPM:
 	- [watchr](https://github.com/mynyml/watchr)
@@ -89,6 +91,7 @@ How to Use
 		(it should look like this)
 		14. var config = {
 		15. 	color 	  : true,
+
 
 3. **START THE SERVER**
 
