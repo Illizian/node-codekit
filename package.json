@@ -1,6 +1,6 @@
 {
   "name": "node-codekit",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "CodeKit alternative on Node.JS",
   "bin": {
     "node-codekit": "bin/node-codekit"
@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies" : {
+    "commander"   :  "*",
     "colors"      :  "*",
     "watchr"      :  "*",
     "less"        :  "*",
