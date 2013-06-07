@@ -1,0 +1,26 @@
+{
+  "name": "node-codekit",
+  "version": "0.0.0",
+  "description": "CodeKit alternative on Node.JS",
+  "bin": {
+    "node-codekit": "bin/node-codekit"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies" : {
+    "colors"      :  "*",
+    "watchr"      :  "*",
+    "less"        :  "*",
+    "socket.io"   :  "*",
+    "node-minify" :  "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Illizian/node-codekit.git"
+  },
+  "author": "Alex Scotton",
+  "license": "open",
+  "readmeFilename": "readme.md",
+  "gitHead": "701fc40d697de1cf54c0a41812144f3622c31bdd"
+}
