@@ -67,22 +67,37 @@ How to Use
 
 1. **INSTALL**
 	
-	You can either clone the repo or install from NPM repo
+	Install from NPM
 
 		npm install -g node-codekit
+	> [https://npmjs.org/package/node-codekit](https://npmjs.org/package/node-codekit)
 
-2. **CONFIGURE**
-
-	Unfortunately, at the moment configuration is hardcoded, so sensible defauls have been applied.
-
-	If you need to change the configuration then please clone the repo, make the amendments and then install from the local directory by running:
-
-		npm install -g
-
-3. **LAUNCH IN ROOT OF WORKING DIR**
-
+2. **INIT DEFAULT CONFIG**
+	
+	Navigate to the directory you want to watch and add the default config file
+ 		
  		cd myProject/
- 		node-codekit
+ 		node-codekit -i
+
+3. **CONFIGURE**
+	
+	Open the newly created node-codekit-config.json file:
+
+	```javascript
+	{
+		color:     true,       // COLOR CLI LOG OPTION (bool)
+		minify:    false,      // MINIFY CSS or JSS OUTPUT (bool)
+		cssreload: true,       // DYNAMICALLY REFRESH CSS? (bool)
+		less:      true,       // COMPILE LESS FILES? (bool)
+		blacklist: new Array(  // IGNORE LIST (array)
+			'css',
+		),
+		os_dir_oblique : '/'//OS SPECIFIC DIRECTORY (unix: '/' | win:'\\')
+	};
+	```
+4. **RUN SERVER**
+
+		node-codekit
 
 --------
 | email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](http://www.alexscotton.com) |
