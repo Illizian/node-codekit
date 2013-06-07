@@ -85,4 +85,4 @@ How to Use
  		node-codekit
 
 --------
-| email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](www.alexscotton.com) |
+| email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](http://www.alexscotton.com) |
