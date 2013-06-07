@@ -49,6 +49,8 @@ Features
 
 4.	**CSS & JS Minifier/Compressor**
 	
+	> currently broken (and disabled)
+
 	Using a YUI library, it compresses all of your CSS and Javascript files, to ensure
 	peak performance on your webpage.
 
@@ -60,50 +62,27 @@ Features
 	Using only NodeJS and Node libraries (npm modules); it is truely cross platform; 
 	all you need is NodeJS and you're ready to go!
 
-	(coming soon as a NPM Module, you can install globally)
-
 How to Use
 --------
 
-> (for testing purposes - this is not ready for a development environment - once in beta you will use as a global npm module)
-
-1. **Clone the Repo**
-2. **Install dependancies**
-
-	node-minify requires the Java Runtime Environment or JRE
- 	
-	NodeKit requires a few modules available via NPM:
-	- [watchr](https://github.com/mynyml/watchr)
- 	- [socket.io](https://github.com/LearnBoost/socket.io)
-  	- [less](http://lesscss.org/#-server-side-usage)
- 	- [node-minify](https://github.com/srod/node-minify)
-
- 	Run the following command in the directory you cloned the repo to:
- 	 	
- 	 	npm install watchr socket.io less node-minify
- 	
-3. **CONFIGURE THE SERVER**
+1. **INSTALL**
 	
-	At this stage there is some manual configuration to be done before you're ready to go, this will be superseeded once NodeKit is an npm module, for now simply follow these steps:
-	- Open server.js in your text editor
-	- configure the server options on lines 14-25:
+	You can either clone the repo or install from NPM repo
 
-		(it should look like this)
-		14. var config = {
-		15. 	color 	  : true,
+		npm install -g node-codekit
 
+2. **CONFIGURE**
 
-3. **START THE SERVER**
+	Unfortunately, at the moment configuration is hardcoded, so sensible defauls have been applied.
 
- 	Run the following command in the directory you cloned the repo to:
- 		
- 		node server.js
+	If you need to change the configuration then please clone the repo, make the amendments and then install from the local directory by running:
 
-4. **LAUNCH EXAMPLE PAGE**
+		npm install -g
 
- 	Open up client/example.html on your browser
+3. **LAUNCH IN ROOT OF WORKING DIR**
 
- 	Make some changes to the file
+ 		cd myProject/
+ 		node-codekit
 
 --------
 | email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](www.alexscotton.com) |
