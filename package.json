@@ -1,6 +1,6 @@
 {
   "name": "node-codekit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CodeKit alternative on Node.JS",
   "bin": {
     "node-codekit": "bin/node-codekit"
@@ -10,6 +10,7 @@
   },
   "dependencies" : {
     "commander"   :  "*",
+    "prompt"      :  "*",
     "colors"      :  "*",
     "watchr"      :  "*",
     "less"        :  "*",
