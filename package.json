@@ -1,6 +1,6 @@
 {
   "name": "node-codekit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CodeKit alternative on Node.JS",
   "bin": {
     "node-codekit": "bin/node-codekit"
