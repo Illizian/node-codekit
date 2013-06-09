@@ -9,6 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies" : {
+    "growl"       :  "*",
+    "g15composer" :  "*",
     "commander"   :  "*",
     "prompt"      :  "*",
     "colors"      :  "*",
