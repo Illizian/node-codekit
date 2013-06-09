@@ -3,7 +3,8 @@
   "version": "0.0.4",
   "description": "CodeKit alternative on Node.JS",
   "bin": {
-    "node-codekit": "bin/node-codekit"
+    "node-codekit": "bin/nodekit",
+    "nodekit": "bin/nodekit"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

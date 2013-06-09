@@ -61,7 +61,7 @@ Features
 
 	Please refer to their installation how to, for OS specific dependancies.
 
-		node-codekit -n growl
+		nodekit -n growl
 
 5.	**Cross-Platform**
 	
@@ -83,13 +83,13 @@ How to Use
 	Navigate to the directory you want to watch and start node-codekit with the -i flag to setup your directory
  		
  		cd myProject/
- 		node-codekit -i
+ 		nodekit -i
 
  	Follow the on-screen prompts.
 
 3. **RUN SERVER**
 
-		node-codekit
+		nodekit
 
 --------
 | email: [alex@alexscotton.com](mailto:alex@alexscotton.com) | www: [www.alexscotton.com](http://www.alexscotton.com) |
