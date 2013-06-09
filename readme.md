@@ -20,7 +20,7 @@ Thank you, incident57 for providing the inspiration!
 Features
 --------
 
-1. **Live Browser Reloads**
+1. **Live Reload**
 	
 	Place a small snippet of code into your "views":
 
@@ -38,7 +38,7 @@ Features
     playing with rules, and sometimes it's not convenient to do it in Debugging
     Tools, or maybe you're designing for a tablet or mobile device and don't have such luxuries.
 
-    Well with NodeKit, everytime a Stylesheet changes, it instructs all your
+    Well with NodeKit, Everytime a Stylesheet changes, it instructs all your
     browsers/displays (inc. Mobiles/Tablets) to reload the stylesheets, no refresh of the page needed!
 
 3.  **LESS Compiler**
@@ -49,13 +49,19 @@ Features
 
 4.	**CSS & JS Minifier/Compressor**
 	
-	> currently broken (and disabled)
-
 	Using a YUI library, it compresses all of your CSS and Javascript files, to ensure
 	peak performance on your webpage.
 
 		example: style.less.css => style.less-min-yui.css
 		example: jquery.js => jquery-min-yui.js
+
+5.  **Notifications**
+
+	Support for the desktop notifications via [Growl](https://github.com/visionmedia/node-growl)
+
+	Please refer to their installation how to, for OS specific dependancies.
+
+		node-codekit -n growl
 
 5.	**Cross-Platform**
 	
@@ -72,30 +78,16 @@ How to Use
 		npm install -g node-codekit
 	> [https://npmjs.org/package/node-codekit](https://npmjs.org/package/node-codekit)
 
-2. **INIT DEFAULT CONFIG**
+2. **CONFIGURE YOUR WORKING DIRECTORY**
 	
-	Navigate to the directory you want to watch and add the default config file
+	Navigate to the directory you want to watch and start node-codekit with the -i flag to setup your directory
  		
  		cd myProject/
  		node-codekit -i
 
-3. **CONFIGURE**
-	
-	Open the newly created node-codekit-config.json file:
+ 	Follow the on-screen prompts.
 
-	```javascript
-	{
-		color:     true,       // COLOR CLI LOG OPTION (bool)
-		minify:    false,      // MINIFY CSS or JSS OUTPUT (bool)
-		cssreload: true,       // DYNAMICALLY REFRESH CSS? (bool)
-		less:      true,       // COMPILE LESS FILES? (bool)
-		blacklist: new Array(  // IGNORE LIST (array)
-			'css',
-		),
-		os_dir_oblique : '/'//OS SPECIFIC DIRECTORY (unix: '/' | win:'\\')
-	};
-	```
-4. **RUN SERVER**
+3. **RUN SERVER**
 
 		node-codekit
 
